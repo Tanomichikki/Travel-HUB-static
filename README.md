@@ -55,8 +55,10 @@ CloudFront CDN
      ⬇
 End Users
 
+
 #### **☁️ AWS Deployment Breakdown**
-***🪣 Amazon S3 — Static Hosting***
+
+**🪣 Amazon S3 — Static Hosting**
 
 The website's dist/ folder is uploaded into an S3 bucket configured for static hosting.
 
@@ -79,11 +81,12 @@ We uncheck it only for this bucket because it contains public frontend assets, n
 Even after allowing public access, AWS still protects the bucket.
 A bucket policy explicitly gives read-only access to all users:
 
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "PublicRead",
+      "Sid": "PublicReadGetObject",
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
@@ -91,7 +94,7 @@ A bucket policy explicitly gives read-only access to all users:
     }
   ]
 }
-
+```
 
 This ensures:
 
@@ -101,6 +104,8 @@ This ensures:
 
 - Safe for static content
 
+
+
 ***🌐 Amazon CloudFront — Global CDN + HTTPS***
 
 S3 website endpoints only support **HTTP**, which is insecure.
@@ -108,42 +113,53 @@ To deploy the website professionally, CloudFront is used.
 
 🔹 Why CloudFront?
 
-Enables full HTTPS (S3 cannot provide HTTPS on custom/static endpoints)
+- Enables full HTTPS (S3 cannot provide HTTPS on custom/static endpoints)
 
-Global edge locations make the site load faster
+- Global edge locations make the site load faster
 
-Adds caching, improving performance and reducing S3 costs
+- Adds caching, improving performance and reducing S3 costs
 
-Ensures SEO ranking and browser trust
+- Ensures SEO ranking and browser trust
 
-Hides the S3 bucket URL for better security
+- Hides the S3 bucket URL for better security
 
 Key CloudFront Settings:
 
-Origin: S3 Website Endpoint
+- Origin: S3 Website Endpoint
 
-Viewer Protocol Policy: Redirect HTTP → HTTPS
+- Viewer Protocol Policy: Redirect HTTP → HTTPS
 
-Default Root Object: index.html
+- Default Root Object: index.html
 
-🛠️ Tech Stack
-Frontend:	          HTML, CSS, JavaScript, React (if applicable), Vite
+
+**🛠️ Tech Stack**
+
+Frontend:	              HTML, CSS, JavaScript, React, Vite
 Cloud Hosting: 	    Amazon S3
-CDN + Security: 	  Amazon CloudFront
-Dev Environment:	  VS Code, Node.js, npm
+CDN + Security: 	    Amazon CloudFront
+Dev Environment:	    VS Code, Node.js, npm
 
 
 **📂 Project Structure**
+```
 TravelHub/
-│
-├── public/          → Static assets (favicon, images)
+├── dist/
+│   ├── index.html
+│   ├── assets/
+│   └── styles.css
+├── public/
+│   └── favicon.ico
 ├── src/
-│   ├── components/  → UI components
-│   ├── pages/       → Page-level sections
-│   ├── styles/      → CSS files
-│   └── main.tsx     → Entry file
-│
-└── dist/            → Production build (Upload to S3)
+│   ├── components/
+│   ├── pages/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
 
 **🧪 Running the Project Locally**
 
@@ -160,22 +176,21 @@ npm run dev
 4️. Build for Production
 npm run build
 
-**🚀 Deploying to AWS S3 + CloudFront**
-Step 1 — Build the Project
-npm run build
 
+#### **🚀 Deploying to AWS S3 + CloudFront**
+
+**Step 1 — Build the Project**
+```ts
+npm run build
+```
 **Step 2 — Upload /dist to an S3 Bucket
 Step 3 — Enable Static Website Hosting
 Step 4 — Add Public Read Bucket Policy
-Step 5 — Create a CloudFront Distribution
-
-Origin: S3 website endpoint
-
-Viewer Protocol: Redirect HTTP to HTTPS
-
-Default Root Object: index.html
-
-Step 6 — Access Your Website via CloudFront HTTPS URL**
+Step 5 — Create a CloudFront Distribution**
+- Origin: S3 website endpoint
+- Viewer Protocol: Redirect HTTP to HTTPS
+- Default Root Object: index.html
+**Step 6 — Access Your Website via CloudFront HTTPS URL**
 
 
 **📸 Screenshots**
