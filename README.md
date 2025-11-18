@@ -1,4 +1,4 @@
-## **🌍 TravelHUB – Static Website Hosting Using Amazon S3 and CloudFront CDN**
+# **🌍 TravelHUB – Static Website Hosting Using Amazon S3 and CloudFront CDN**
 
 A fully responsive static travel website deployed using Amazon S3 and secured globally using Amazon CloudFront.
 
@@ -57,6 +57,7 @@ CloudFront CDN
 End Users
 ```
 
+
 #### **☁️ AWS Deployment Breakdown**
 
 **🪣 Amazon S3 — Static Hosting**
@@ -107,7 +108,7 @@ This ensures:
 
 
 
-***🌐 Amazon CloudFront — Global CDN + HTTPS***
+### ***🌐 Amazon CloudFront — Global CDN + HTTPS***
 
 S3 website endpoints only support **HTTP**, which is insecure.
 To deploy the website professionally, CloudFront is used.
@@ -133,7 +134,7 @@ Key CloudFront Settings:
 - Default Root Object: index.html
 
 
-**🛠️ Tech Stack**
+### **🛠️ Tech Stack**
 
 Frontend:	              HTML, CSS, JavaScript, React, Vite
 Cloud Hosting: 	    Amazon S3
@@ -141,7 +142,7 @@ CDN + Security: 	    Amazon CloudFront
 Dev Environment:	    VS Code, Node.js, npm
 
 
-**📂 Project Structure**
+### **📂 Project Structure**
 ```
 TravelHub/
 ├── dist/
@@ -187,23 +188,27 @@ npm run dev
 npm run build
 ```
 
-#### **🚀 Deploying to AWS S3 + CloudFront**
+### **🚀 Deploying to AWS S3 + CloudFront**
 
 **Step 1 — Build the Project**
 ```ts
 npm run build
 ```
 **Step 2 — Upload /dist to an S3 Bucket**
+
 **Step 3 — Enable Static Website Hosting**
+
 **Step 4 — Add Public Read Bucket Policy**
+
 **Step 5 — Create a CloudFront Distribution**
 - Origin: S3 website endpoint
 - Viewer Protocol: Redirect HTTP to HTTPS
 - Default Root Object: index.html
+
 **Step 6 — Access Your Website via CloudFront HTTPS URL**
 
 
-**📸 Screenshots**
+### **📸 Screenshots**
 
 
-**🎥 Video Demonstration (YouTube)**
+### **🎥 Video Demonstration (YouTube)**
