@@ -1,5 +1,11 @@
 # **🌍 TravelHUB – Static Website Hosting Using Amazon S3 and CloudFront CDN**
 
+### ▶️ Watch the Project:
+
+[![Video](https://img.youtube.com/vi/abcd1234/0.jpg)](https://youtu.be/I46WVfJkkbA)
+
+
+
 A fully responsive static travel website deployed using Amazon S3 and secured globally using Amazon CloudFront.
 
 **📌 About the Project**
