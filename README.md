@@ -48,18 +48,10 @@ This project demonstrates:
 - Edge caching ensures sub-second global delivery
 
 
-**🏗️ Project Architecture**
-```
-Frontend 
-     ⬇
-Amazon S3 Bucket
-(Static Website Hosting Enabled)
-     ⬇
-CloudFront CDN
-(HTTPS + Global Acceleration)
-     ⬇
-End Users
-```
+**🏗️ AWS Architecture Diagram**
+<p align="center">
+  <img src="https://github.com/Tanomichikki/AWS-Travel-HUB-static/blob/main/S3%2B%20cloudfront.png" width="50%" />
+</p>
 
 
 #### **☁️ AWS Deployment Breakdown**
@@ -210,9 +202,3 @@ npm run build
 - Default Root Object: index.html
 
 **Step 6 — Access Your Website via CloudFront HTTPS URL**
-
-
-### **📸 Screenshots**
-
-
-### **🎥 Video Demonstration (YouTube)**
